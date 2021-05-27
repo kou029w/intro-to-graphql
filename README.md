@@ -101,29 +101,15 @@ FacebookがGraphQLを開発した理由は、[モバイルネイティブアプ�
 
 #### REST
 
-![h:600 REST](https://imgur.com/VRyV7Jh.png)
-
-https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
+![h:600 REST](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/rest-api.png)
+https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/
 
 ---
 
 #### GraphQL
 
-![h:600 GraphQL](https://imgur.com/z9VKnHs.png)
-
-https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
-
----
-
-#### REST
-
-1. `GET /users/<id>`
-1. `GET /users/<id>/posts`
-1. `GET /users/<id>/followers`
-
-#### GraphQL
-
-1. `GET /?query={user(id:<id>){name,posts{title},followers(last:<count>){name}}}`
+![h:600 GraphQL](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphql-api.gif)
+https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/
 
 ---
 
@@ -297,6 +283,7 @@ https://hasura.io
 - [山本陽平「Webを支える技術」](https://gihyo.jp/book/2010/978-4-7741-4204-3) - HTTPの基礎知識、REST
 - [GraphQL \| A query language for your API](https://graphql.org/)
 - [How to GraphQL \- The Fullstack Tutorial for GraphQL](https://www.howtographql.com/)
+- [Fullstack GraphQL Tutorial Series \| Learn GraphQL Frontend and Backend](https://hasura.io/learn/)
 
 ---
 
