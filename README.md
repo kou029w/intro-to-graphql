@@ -85,7 +85,7 @@ https://graphql-pokemon2.vercel.app
 
 1. 単一リクエスト
 2. 型システム
-3. 便利な開発ツール
+3. 開発ツール
 
 ---
 
@@ -216,7 +216,7 @@ https://www.apollographql.com
 
 ---
 
-### 3. 便利な開発ツール
+### 3. 開発ツール
 
 短期間での開発
 
@@ -267,10 +267,10 @@ https://hasura.io
 
 ---
 
-## ここまでのまとめ
+## まとめ
 
 - GraphQLとはデータを問い合わせるクエリ言語仕様と周辺技術
-- 単一リクエスト/型システム/便利な開発ツール
+- 単一リクエスト/型システム/開発ツール
 
 ---
 
@@ -278,7 +278,7 @@ https://hasura.io
 
 ---
 
-### GraphQL Operation
+## GraphQL Operation
 
 3種類の操作
 
@@ -287,6 +287,10 @@ https://hasura.io
 - subscription - イベントストリーム
 
 1つのリクエストに複数の操作を含めることが可能
+
+---
+
+## Query - データの取得
 
 ---
 
@@ -325,7 +329,7 @@ query {
 
 ---
 
-変数を使ったクエリーの再利用
+変数を使ったqueryの再利用
 
 ```graphql
 query ($name: String!) {
@@ -427,25 +431,10 @@ query ($showClassification: Boolean!) {
 
 ---
 
-### JSON Serialization
-
-GraphQL Value	|JSON Value
----|---
-Map	|Object
-List	|Array
-Null	|null
-String/Enum Value	|String
-Boolean	|true or false
-Int/Float	|Number
-
-https://spec.graphql.org/June2018/#sec-JSON-Serialization
-
----
-
 ## まとめ
 
-- 基本的な構文
-- JSONとの対応関係
+- 3種類の操作
+- Queryによるデータの取得
 
 ---
 
@@ -495,3 +484,18 @@ GraphQL仕様に含まないので一般的なWebの認証・認可の設計と�
 ### キャッシュ
 
 HTTP GETメソッドによる一般的な[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)に加え、GraphQLでは[グローバルなオブジェクトの識別子の宣言](https://graphql.org/learn/global-object-identification/)による[キャッシュ](https://graphql.org/learn/caching/)が存在
+
+---
+
+### JSON Serialization
+
+GraphQL Value	|JSON Value
+---|---
+Map	|Object
+List	|Array
+Null	|null
+String/Enum Value	|String
+Boolean	|true or false
+Int/Float	|Number
+
+https://spec.graphql.org/June2018/#sec-JSON-Serialization
