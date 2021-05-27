@@ -272,6 +272,15 @@ https://www.graphql-code-generator.com
 
 ---
 
+#### Hasura
+
+GraphQLサーバー
+接続したデータベースを自動的にGraphQL APIとして提供
+
+https://hasura.io
+
+---
+
 ## まとめ
 
 - GraphQLとはデータを問い合わせるクエリ言語仕様と周辺技術
