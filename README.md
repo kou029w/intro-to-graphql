@@ -339,9 +339,3 @@ GraphQL仕様に含まないので一般的なWebの認証・認可の設計と�
 ### キャッシュ
 
 HTTP GETメソッドによる一般的な[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)に加え、GraphQLでは[グローバルなオブジェクトの識別子の宣言](https://graphql.org/learn/global-object-identification/)による[キャッシュ](https://graphql.org/learn/caching/)が存在
-
----
-
-### (参考程度) 導入するか迷ったら…
-
-![モバイルアプリならGraphQLを使うと良いかもね](https://kroki.io/plantuml/svg/eNorzs7MK0gsSsxVyM3Py0_OKMrPTVUoKSpN5SqGyxQl5mUXpxYoGBkgCaYUZCoYGxhwcWWmKWg8bl70uHnC46Ylj5tXP24Csqc_bl5lr6mQWayg4ZevqVCSkZrHZRXkGhxizZWdmZPDlZpTnKqgEZlarMll5V6UWJAR6AORAQDmfzaI)
