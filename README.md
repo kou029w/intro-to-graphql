@@ -21,7 +21,7 @@ https://graphql.org
 
 サーバーへの問い合わせ (Query)
 ```graphql
-{
+query {
   pokemon(name: "Pikachu") {
     classification
   }
@@ -67,10 +67,10 @@ https://graphql-pokemon2.vercel.app
 
 ## 主な仕様
 
-1. サーバー: [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
-2. クライアント: [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
-3. サーバー: [クエリの実行方法 (Resolvers)](https://graphql.org/learn/execution/)
-4. クライアント: [受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
+- サーバー: [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
+- クライアント: [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
+- サーバー: [クエリの実行方法 (Resolvers)](https://graphql.org/learn/execution/)
+- クライアント: [受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
 
 ---
 
@@ -267,10 +267,185 @@ https://hasura.io
 
 ---
 
-## まとめ
+## ここまでのまとめ
 
 - GraphQLとはデータを問い合わせるクエリ言語仕様と周辺技術
 - 単一リクエスト/型システム/便利な開発ツール
+
+---
+
+## GraphQLをもっと知る
+
+---
+
+### GraphQL Operation
+
+3種類の操作
+
+- query - 読み取り
+- mutation - 書き込み
+- subscription - イベントストリーム
+
+1つのリクエストに複数の操作を含めることが可能
+
+---
+
+### 基本的な構文
+
+```graphql
+query {
+  pokemon(name: "Pikachu") {
+    classification
+  }
+}
+```
+
+`query` … 操作
+`name` … 引数
+`"Pikachu"` … 値
+`pokemon`, `classification` … フィールド
+
+---
+
+子孫関係
+
+```graphql
+query {
+  pokemon(name: "Pikachu") {
+    classification
+    height {
+      minimum
+      maximum
+    }
+  }
+}
+```
+
+`height` フィールドの中の `minimum`, `maximum` フィールド
+
+---
+
+変数を使ったクエリーの再利用
+
+```graphql
+query ($name: String!) {
+  pokemon(name: $name) {
+    classification
+    height {
+      minimum
+      maximum
+    }
+  }
+}
+```
+
+\+
+
+```json
+{
+  "name": "Pikachu"
+}
+```
+
+`$name` … 変数
+`String!` … 型
+
+---
+
+操作を名付ける
+
+```graphql
+query fetchPikachu {
+  pokemon(name: "Pikachu") {
+    classification
+  }
+}
+```
+
+`fetchPikachu` … 操作名
+
+---
+
+フィールドを名付ける
+
+```graphql
+query {
+  pikachu: pokemon(name: "Pikachu") {
+    classification
+  }
+}
+```
+
+`pikachu` … エイリアス
+
+---
+
+フラグメント
+
+```graphql
+fragment dimension on PokemonDimension {
+  minimum
+  maximum
+}
+
+query {
+  pokemon(name: "Pikachu") {
+    classification
+    height {
+      ...dimension
+    }
+    weight {
+      ...dimension
+    }
+  }
+}
+```
+
+`dimension` … フラグメント
+
+---
+
+ディレクティブ
+
+```graphql
+query ($showClassification: Boolean!) {
+  pokemon(name: "Pikachu") {
+    classification @include(if: $showClassification)
+  }
+}
+```
+
+\+
+
+```json
+{
+  "showClassification": true
+}
+```
+
+`@include` … ディレクティブ
+
+---
+
+### JSON Serialization
+
+GraphQL Value	|JSON Value
+---|---
+Map	|Object
+List	|Array
+Null	|null
+String/Enum Value	|String
+Boolean	|true or false
+Int/Float	|Number
+
+https://spec.graphql.org/June2018/#sec-JSON-Serialization
+
+---
+
+## まとめ
+
+- 基本的な構文
+- JSONとの対応関係
 
 ---
 
@@ -289,27 +464,12 @@ https://hasura.io
 
 ### 何を話していないか
 
-- [言語仕様](https://spec.graphql.org/)
+- [Mutation](https://graphql.org/learn/queries/#mutations)
+- [Introspection](https://graphql.org/learn/introspection/)
 - [エラーレスポンス](http://spec.graphql.org/June2018/#sec-Errors)
 - [Validation](https://graphql.org/learn/validation/)
 - [Execution](https://graphql.org/learn/execution/)
 - [Subscription](https://spec.graphql.org/June2018/#sec-Subscription)
-- [Introspection](https://graphql.org/learn/introspection/)
-
----
-
-### JSON Serialization
-
-GraphQL Value	|JSON Value
----|---
-Map	|Object
-List	|Array
-Null	|null
-String/Enum Value	|String
-Boolean	|true or false
-Int/Float	|Number
-
-https://spec.graphql.org/June2018/#sec-JSON-Serialization
 
 ---
 
