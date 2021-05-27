@@ -45,9 +45,10 @@ https://graphql-pokemon2.vercel.app
 
 ## GraphQLとは
 
-- APIのクエリ言語
-- クエリ言語の型を宣言するGraphQLスキーマ言語
-- Webクライアントとサーバーのためのアプリケーション層の仕様
+- [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
+- [クライアントの受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
+- [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
+- [クエリの実行方法](https://graphql.org/learn/execution/)
 
 ### GraphQL以外の身近な言語の例:
 - クエリ言語: SQL
@@ -62,15 +63,6 @@ https://graphql-pokemon2.vercel.app
 - 2019年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
 
 オープンソースな仕様になっており、自由に[貢献可能](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
-
----
-
-## 主な仕様
-
-- [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
-- [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
-- [クエリの実行方法 (Resolvers)](https://graphql.org/learn/execution/)
-- [クライアントの受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
 
 ---
 
