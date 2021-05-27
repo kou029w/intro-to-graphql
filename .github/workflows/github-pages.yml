@@ -1,0 +1,20 @@
+name: github-pages
+on:
+  push:
+    branches: [master]
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          git -c "user.name=bot" -c "user.email=bot@example" subtree add --prefix pages origin gh-pages
+          npx @marp-team/marp-cli README.md -o pages/index.html
+      - id: git_status
+        run: echo "::set-output name=mod::$(git status pages --porcelain)"
+      - name: push
+        if: steps.git_status.outputs.mod != ''
+        run: |
+          git -c "user.name=bot" -c "user.email=bot@example" commit -a -m update
+          git subtree push --prefix pages origin gh-pages
