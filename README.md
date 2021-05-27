@@ -7,12 +7,17 @@ paginate: true
 
 WebDINO Japan エンジニア
 [渡邉浩平](https://github.com/kou029w)
-
 ![w:200](https://github.com/kou029w.png)
 
 ---
 
-## [GraphQL](https://graphql.org)とは
+## GraphQLとは
+
+https://graphql.org
+
+---
+
+### GraphQLとはAPIのクエリ言語
 
 サーバーへの問い合わせ (Query)
 ```graphql
@@ -36,8 +41,6 @@ WebDINO Japan エンジニア
 
 https://graphql-pokemon2.vercel.app
 
-GraphQLとはAPIのクエリ言語
-
 ---
 
 ## GraphQLとは
@@ -46,11 +49,9 @@ GraphQLとはAPIのクエリ言語
 - クエリ言語の型を宣言するGraphQLスキーマ言語
 - Webクライアントとサーバーのためのアプリケーション層の仕様
 
-:::info
-GraphQL以外の身近な言語の例:
+### GraphQL以外の身近な言語の例:
 - クエリ言語: SQL
 - スキーマ言語: [JSON Schema](https://json-schema.org/), [XSD](http://www.w3.org/TR/xmlschema11-1/)
-:::
 
 ---
 
@@ -98,29 +99,29 @@ FacebookがGraphQLを開発した理由は、[モバイルネイティブアプ�
 
 ---
 
-REST
+#### REST
 
-![REST](https://imgur.com/VRyV7Jh.png)
-
-https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
-
----
-
-GraphQL
-
-![GraphQL](https://imgur.com/z9VKnHs.png)
+![h:600 REST](https://imgur.com/VRyV7Jh.png)
 
 https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
 
 ---
 
-REST
+#### GraphQL
+
+![h:600 GraphQL](https://imgur.com/z9VKnHs.png)
+
+https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
+
+---
+
+#### REST
 
 1. `GET /users/<id>`
 1. `GET /users/<id>/posts`
 1. `GET /users/<id>/followers`
 
-GraphQL
+#### GraphQL
 
 1. `GET /?query={user(id:<id>){name,posts{title},followers(last:<count>){name}}}`
 
@@ -134,6 +135,8 @@ GraphQL
 クライアントアプリケーションを実行するフロントエンドフレームワークとプラットフォームの多様化が背景
 
 ---
+
+#### GraphQLスキーマ言語
 
 ```graphql=
 """ポケモンを表します"""
@@ -159,8 +162,6 @@ type Pokemon {
   # ...
 }
 ```
-
-特定のプログラミング言語に依存しないGraphQLスキーマ言語
 
 ---
 
@@ -199,13 +200,11 @@ type Pokemon {
 
 ---
 
+#### 特定のプログラミング言語に依存しない
+
 ```javascript
 // JavaScript
-const pokemonQuery = `{
-  pokemon(name: "Pikachu") {
-    classification
-  }
-}`;
+const pokemonQuery = `{ pokemon(name: "Pikachu") { classification } }`;
 
 fetch(`http://example/?${new URLSearchParams({ query: pokemonQuery })}`)
   .then(r => r.json())
@@ -240,13 +239,15 @@ https://www.apollographql.com
 
 ---
 
-IDE
+#### IDE - GraphiQL
 
-![GraphiQL](https://raw.githubusercontent.com/graphql/graphiql/main/packages/graphiql/resources/graphiql.jpg)
+![h:600 GraphiQL](https://raw.githubusercontent.com/graphql/graphiql/main/packages/graphiql/resources/graphiql.jpg)
 
-[GraphiQL](https://github.com/graphql/graphiql), [GraphQL Playground](https://github.com/graphql/graphql-playground), etc.
+https://github.com/graphql/graphiql
 
 ---
+
+#### GraphQL Code Generator
 
 コードの生成
 
@@ -265,7 +266,8 @@ export default () => {
 };
 ```
 
-[GraphQL Code Generator](https://www.graphql-code-generator.com/)
+https://www.graphql-code-generator.com
+
 [React](https://www.graphql-code-generator.com/docs/plugins/typescript-react-query), [Vue](https://www.graphql-code-generator.com/docs/plugins/typescript-vue-apollo), [Kotlin](https://www.graphql-code-generator.com/docs/plugins/kotlin), etc.
 
 ---
@@ -307,11 +309,9 @@ GraphQL Value	|JSON Value
 Map	|Object
 List	|Array
 Null	|null
-String	|String
+String/Enum Value	|String
 Boolean	|true or false
-Int	|Number
-Float	|Number
-Enum Value	|String
+Int/Float	|Number
 
 https://spec.graphql.org/June2018/#sec-JSON-Serialization
 
@@ -344,11 +344,4 @@ HTTP GETメソッドによる一般的な[HTTP キャッシュ](https://develope
 
 ### (参考程度) 導入するか迷ったら…
 
-```graphviz
-digraph {
-apps[shape=diamond,label="モバイルアプリ?"]
-apps->GraphQL[label=Yes]
-apps->REST[label=No]
-{rank=same;apps;GraphQL}
-}
-```
+![モバイルアプリならGraphQLを使うと良いかもね](https://kroki.io/plantuml/svg/eNorzs7MK0gsSsxVyM3Py0_OKMrPTVUoKSpN5SqGyxQl5mUXpxYoGBkgCaYUZCoYGxhwcWWmKWg8bl70uHnC46Ylj5tXP24Csqc_bl5lr6mQWayg4ZevqVCSkZrHZRXkGhxizZWdmZPDlZpTnKqgEZlarMll5V6UWJAR6AORAQDmfzaI)
