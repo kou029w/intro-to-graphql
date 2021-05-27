@@ -266,9 +266,9 @@ export default () => {
 };
 ```
 
-https://www.graphql-code-generator.com
-
 [React](https://www.graphql-code-generator.com/docs/plugins/typescript-react-query), [Vue](https://www.graphql-code-generator.com/docs/plugins/typescript-vue-apollo), [Kotlin](https://www.graphql-code-generator.com/docs/plugins/kotlin), etc.
+
+https://www.graphql-code-generator.com
 
 ---
 
