@@ -19,7 +19,7 @@ https://graphql.org
 
 ### GraphQLとはAPIのクエリ言語
 
-サーバーへの問い合わせ (Query)
+サーバーへの問い合わせ (GraphQL Query)
 ```graphql
 query {
   pokemon(name: "Pikachu") {
@@ -28,7 +28,7 @@ query {
 }
 ```
 
-サーバーからの応答 (Response, JSON形式)
+サーバーからの応答 (JSON)
 ```json
 {
   "data": {
@@ -67,10 +67,10 @@ https://graphql-pokemon2.vercel.app
 
 ## 主な仕様
 
-- サーバー: [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
-- クライアント: [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
-- サーバー: [クエリの実行方法 (Resolvers)](https://graphql.org/learn/execution/)
-- クライアント: [受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
+- [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
+- [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
+- [クエリの実行方法 (Resolvers)](https://graphql.org/learn/execution/)
+- [クライアントの受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
 
 ---
 
