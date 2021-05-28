@@ -114,7 +114,7 @@ https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/
 
 ---
 
-#### GraphQLスキーマ言語
+#### GraphQL Schema
 
 ```graphql=
 """ポケモンを表します"""
