@@ -43,7 +43,17 @@ https://graphql-pokemon2.vercel.app
 
 ---
 
-## GraphQLとは
+## 歴史
+
+- 2012年 Facebookによる開発
+- 2015年 オープンソース化
+- 2019年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
+
+オープンソースな仕様になっており、自由に[貢献可能](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
+
+---
+
+## 主な仕様
 
 - [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
 - [クライアントの受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
@@ -53,16 +63,6 @@ https://graphql-pokemon2.vercel.app
 ### GraphQL以外の身近な言語の例:
 - クエリ言語: SQL
 - スキーマ言語: [JSON Schema](https://json-schema.org/), [XSD](http://www.w3.org/TR/xmlschema11-1/)
-
----
-
-## 歴史
-
-- 2012年 Facebookによる開発
-- 2015年 オープンソース化
-- 2019年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
-
-オープンソースな仕様になっており、自由に[貢献可能](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
 
 ---
 
