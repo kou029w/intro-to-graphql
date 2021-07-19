@@ -229,7 +229,7 @@ apollo.fetch(query: pokemonQuery) { result in
 }
 ```
 
-https://www.apollographql.com
+<!-- _footer: https://www.apollographql.com -->
 
 ---
 
@@ -246,7 +246,7 @@ https://www.apollographql.com
 
 ![h:600 GraphiQL](https://raw.githubusercontent.com/graphql/graphiql/main/packages/graphiql/resources/graphiql.jpg)
 
-https://github.com/graphql/graphiql
+<!-- _footer: https://github.com/graphql/graphiql -->
 
 ---
 
