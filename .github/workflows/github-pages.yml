@@ -10,7 +10,7 @@ jobs:
       - name: build
         run: |
           git -c "user.name=bot" -c "user.email=bot@example" subtree add --prefix pages origin gh-pages
-          npx @marp-team/marp-cli README.md --html -o pages/index.html
+          npx @marp-team/marp-cli README.md -o pages/index.html
       - id: git_status
         run: echo "::set-output name=mod::$(git status pages --porcelain)"
       - name: push
