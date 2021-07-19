@@ -137,21 +137,14 @@ type Pokemon {
   """このオブジェクトのID"""
   id: ID!
 
-  """このポケモンの全国図鑑No."""
-  number: String
-
   """このポケモンの名前"""
   name: String
 
-  """このポケモンの重さの最大と最小"""
-  weight: PokemonDimension
+  # ...
+}
 
-  """このポケモンの高さの最大と最小"""
-  height: PokemonDimension
-
-  """このポケモンの分類"""
-  classification: String
-
+"""ポケモンの寸法を表します"""
+type PokemonDimension {
   # ...
 }
 ```
@@ -198,8 +191,6 @@ type Pokemon {
   height: PokemonDimension
 }
 ```
-
-オブジェクトに含まれるフィールド
 
 ---
 
