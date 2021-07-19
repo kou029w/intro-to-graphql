@@ -3,23 +3,31 @@ marp: true
 paginate: true
 ---
 
-# GraphQL概論
+# GraphQL 概論
 
 WebDINO Japan エンジニア
 [渡邉浩平](https://github.com/kou029w)
 ![w:200](https://github.com/kou029w.png)
 
+<!-- @license https://cdn.jsdelivr.net/npm/highlightjs-graphql@1.0.2/LICENSE -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/highlight.min.js"></script>
+<script>module={};</script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-graphql@1.0.2/graphql.min.js"></script>
+<script>hljs.registerLanguage("graphql", hljsDefineGraphQL);hljs.highlightAll();</script>
+
 ---
 
-## GraphQLとは
+## GraphQL とは
 
 https://graphql.org
 
 ---
 
-### GraphQLとはAPIのクエリ言語
+### GraphQL とは API のクエリ言語
 
 サーバーへの問い合わせ (GraphQL Query)
+
 ```graphql
 query {
   pokemon(name: "Pikachu") {
@@ -29,6 +37,7 @@ query {
 ```
 
 サーバーからの応答 (JSON)
+
 ```json
 {
   "data": {
@@ -45,9 +54,9 @@ https://graphql-pokemon2.vercel.app
 
 ## 歴史
 
-- 2012年 Facebookによる開発
-- 2015年 オープンソース化
-- 2019年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
+- 2012 年 Facebook による開発
+- 2015 年 オープンソース化
+- 2019 年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
 
 オープンソースな仕様になっており、自由に[貢献可能](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
 
@@ -60,7 +69,8 @@ https://graphql-pokemon2.vercel.app
 - [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
 - [クエリの実行方法](https://graphql.org/learn/execution/)
 
-### GraphQL以外の身近な言語の例:
+### GraphQL 以外の身近な言語の例:
+
 - クエリ言語: SQL
 - スキーマ言語: [JSON Schema](https://json-schema.org/), [XSD](http://www.w3.org/TR/xmlschema11-1/)
 
@@ -69,11 +79,11 @@ https://graphql-pokemon2.vercel.app
 ## 何でないか
 
 - データベースではない
-- JavaScriptではない
+- JavaScript ではない
 
 ---
 
-## なぜGraphQLを使うのか
+## なぜ GraphQL を使うのか
 
 1. 単一リクエスト
 2. 型システム
@@ -85,13 +95,13 @@ https://graphql-pokemon2.vercel.app
 
 効率的なデータ読み込み
 
-FacebookがGraphQLを開発した理由は、[モバイルネイティブアプリへの移行のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
+Facebook が GraphQL を開発した理由は、[モバイルネイティブアプリへの移行のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
 スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
 
-RESTは複数のエンドポイントへの問い合わせを行うという典型的な課題がある
-クライアントのデータ取得の効率やデータの表現の都合で似たような振る舞いのAPIを作りがち
+REST は複数のエンドポイントへの問い合わせを行うという典型的な課題がある
+クライアントのデータ取得の効率やデータの表現の都合で似たような振る舞いの API を作りがち
 
-GraphQLは単一のリクエストで指定したデータを取得可能
+GraphQL は単一のリクエストで指定したデータを取得可能
 オーバーフェッチを最小限に抑え、サーバーへのラウンドトリップを少なくする
 
 ---
@@ -114,7 +124,7 @@ https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/
 
 さまざまなフロントエンド環境のサポート
 
-単一APIの構築と正確なデータ構造の維持
+単一 API の構築と正確なデータ構造の維持
 クライアントアプリケーションを実行するフロントエンドフレームワークとプラットフォームの多様化が背景
 
 ---
@@ -163,18 +173,28 @@ type PokemonDimension {
 ---
 
 ```graphql
-"""ポケモンを表します"""
+"""
+ポケモンを表します
+"""
 type Pokemon {
-  """このオブジェクトのID"""
+  """
+  このオブジェクトのID
+  """
   id: ID!
 
-  """このポケモンの名前"""
+  """
+  このポケモンの名前
+  """
   name: String
 
-  """このポケモンの分類"""
+  """
+  このポケモンの分類
+  """
   classification: String
 
-  """このポケモンの高さの最大と最小"""
+  """
+  このポケモンの高さの最大と最小
+  """
   height: PokemonDimension
 }
 ```
@@ -190,7 +210,7 @@ type Pokemon {
 const pokemonQuery = `{ pokemon(name: "Pikachu") { classification } }`;
 
 fetch(`http://example/?${new URLSearchParams({ query: pokemonQuery })}`)
-  .then(r => r.json())
+  .then((r) => r.json())
   .then(({ data }) => console.log(data?.pokemon?.classification));
 // => "Mouse Pokémon"
 ```
@@ -257,8 +277,8 @@ https://www.graphql-code-generator.com
 
 #### Hasura
 
-GraphQLサーバー
-接続したデータベースを自動的にGraphQL APIとして提供
+GraphQL サーバー
+接続したデータベースを自動的に GraphQL API として提供
 
 https://hasura.io
 
@@ -266,12 +286,12 @@ https://hasura.io
 
 ## まとめ
 
-- GraphQLとはデータを問い合わせるクエリ言語仕様と周辺技術
+- GraphQL とはデータを問い合わせるクエリ言語仕様と周辺技術
 - 単一リクエスト/型システム/開発ツール
 
 ---
 
-## GraphQLをもっと知る
+## GraphQL をもっと知る
 
 使うための知識を深める
 
@@ -279,13 +299,13 @@ https://hasura.io
 
 ## GraphQL Operation
 
-3種類の操作
+3 種類の操作
 
 - query - 読み取り
 - mutation - 書き込み
 - subscription - イベントストリーム
 
-1つのリクエストに複数の操作を含めることが可能
+1 つのリクエストに複数の操作を含めることが可能
 
 ---
 
@@ -328,7 +348,7 @@ query {
 
 ---
 
-変数を使ったqueryの再利用
+変数を使った query の再利用
 
 ```graphql
 query ($name: String!) {
@@ -432,8 +452,8 @@ query ($showClassification: Boolean!) {
 
 ## まとめ
 
-- 3種類の操作
-- Queryによるデータの取得
+- 3 種類の操作
+- Query によるデータの取得
 
 ---
 
@@ -443,7 +463,7 @@ query ($showClassification: Boolean!) {
 
 ### より理解を深めるための知識
 
-- [山本陽平「Webを支える技術」](https://gihyo.jp/book/2010/978-4-7741-4204-3) - HTTPの基礎知識、REST
+- [山本陽平「Web を支える技術」](https://gihyo.jp/book/2010/978-4-7741-4204-3) - HTTP の基礎知識、REST
 - [GraphQL \| A query language for your API](https://graphql.org/)
 - [How to GraphQL \- The Fullstack Tutorial for GraphQL](https://www.howtographql.com/)
 - [Fullstack GraphQL Tutorial Series \| Learn GraphQL Frontend and Backend](https://hasura.io/learn/)
@@ -463,7 +483,7 @@ query ($showClassification: Boolean!) {
 
 ### セキュリティ
 
-セキュリティの懸念事項は一般的なWebサービスと同様に存在
+セキュリティの懸念事項は一般的な Web サービスと同様に存在
 
 - [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
 - [GraphQL \- OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html)
@@ -472,7 +492,7 @@ query ($showClassification: Boolean!) {
 
 ### 認証・認可
 
-GraphQL仕様に含まないので一般的なWebの認証・認可の設計と同様に行う
+GraphQL 仕様に含まないので一般的な Web の認証・認可の設計と同様に行う
 
 - [OpenID](https://openid.net/)
 - [OAuth](https://oauth.net/)
@@ -482,19 +502,19 @@ GraphQL仕様に含まないので一般的なWebの認証・認可の設計と�
 
 ### キャッシュ
 
-HTTP GETメソッドによる一般的な[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)に加え、GraphQLでは[グローバルなオブジェクトの識別子の宣言](https://graphql.org/learn/global-object-identification/)による[キャッシュ](https://graphql.org/learn/caching/)が存在
+HTTP GET メソッドによる一般的な[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)に加え、GraphQL では[グローバルなオブジェクトの識別子の宣言](https://graphql.org/learn/global-object-identification/)による[キャッシュ](https://graphql.org/learn/caching/)が存在
 
 ---
 
 ### JSON Serialization
 
-GraphQL Value	|JSON Value
----|---
-Map	|Object
-List	|Array
-Null	|null
-String/Enum Value	|String
-Boolean	|true or false
-Int/Float	|Number
+| GraphQL Value     | JSON Value    |
+| ----------------- | ------------- |
+| Map               | Object        |
+| List              | Array         |
+| Null              | null          |
+| String/Enum Value | String        |
+| Boolean           | true or false |
+| Int/Float         | Number        |
 
 https://spec.graphql.org/June2018/#sec-JSON-Serialization
