@@ -509,3 +509,9 @@ HTTP GET メソッドによる一般的な[HTTP キャッシュ](https://develop
 | Int/Float         | Number        |
 
 https://spec.graphql.org/June2018/#sec-JSON-Serialization
+
+---
+
+## フィードバック
+
+[このスライドを編集する](https://github.com/kou029w/intro-to-graphql/edit/main/README.md) / [問題を報告する](https://github.com/kou029w/intro-to-graphql/issues/new)
