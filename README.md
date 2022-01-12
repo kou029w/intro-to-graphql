@@ -493,7 +493,9 @@ GraphQL 仕様に含まないので一般的な Web の認証・認可の設計�
 
 ### キャッシュ
 
-HTTP GET メソッドによる一般的な[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)に加え、GraphQL では[グローバルなオブジェクトの識別子の宣言](https://graphql.org/learn/global-object-identification/)による[キャッシュ](https://graphql.org/learn/caching/)が存在
+GraphQL には[グローバルなオブジェクトの識別子の宣言によるキャッシュ機構](https://graphql.org/learn/caching/)がある
+
+もし HTTP GET メソッドを使用する場合、[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)を利用できる
 
 ---
 
