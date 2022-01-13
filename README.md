@@ -18,13 +18,25 @@ WebDINO Japan エンジニア
 
 ---
 
+## はじめに
+
+内容
+
+- GraphQL とは
+- なぜ GraphQL を使うのか
+- GraphQL Query ハンズオン
+
+GraphQL の基礎を学び、実際に GraphQL API からデータを取得できるようになる
+
+---
+
 ## GraphQL とは
 
 https://graphql.org
 
 ---
 
-### GraphQL とは API のクエリ言語
+### GraphQL とは API の問い合わせ言語
 
 サーバーへの問い合わせ (GraphQL Query)
 
@@ -52,31 +64,38 @@ https://graphql-pokemon2.vercel.app
 
 ---
 
-## 歴史
+### 歴史
 
 - 2012 年 Facebook による開発
 - 2015 年 オープンソース化
 - 2019 年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
 
-オープンソースな仕様になっており、自由に[貢献可能](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
+オープンソースな仕様になっており、自由に[貢献できる](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
 
 ---
 
-## 主な仕様
+### 仕様
 
-- [サーバーにデータを要求するための言語 (クエリ言語)](https://graphql.org/learn/queries/)
-- [クライアントの受け取るデータ形式 (JSON)](https://graphql.org/learn/serving-over-http/#response)
-- [使用可能なデータの構造とその操作を宣言するための言語 (スキーマ言語)](https://graphql.org/learn/introspection/)
-- [クエリの実行方法](https://graphql.org/learn/execution/)
+サーバーとクライアントの間のやり取りに使われる言語仕様
+https://spec.graphql.org
 
-### GraphQL 以外の身近な言語の例:
+#### 問い合わせ言語 - GraphQL Query
 
-- クエリ言語: SQL
-- スキーマ言語: [JSON Schema](https://json-schema.org/), [XSD](http://www.w3.org/TR/xmlschema11-1/)
+クライアントがサーバーに JSON のデータを問い合わせるための言語
+https://graphql.org/learn/queries/
+
+身近な問い合わせ言語の例: SQL
+
+#### スキーマ言語 - GraphQL Schema
+
+データ構造と操作を宣言するための言語
+https://graphql.org/learn/schema/
+
+身近なスキーマ言語の例: [JSON Schema](https://json-schema.org/), [XML Schema](http://www.w3.org/TR/xmlschema11-1/)
 
 ---
 
-## 何でないか
+### 何でないか
 
 - データベースではない
 - JavaScript ではない
@@ -87,22 +106,46 @@ https://graphql-pokemon2.vercel.app
 
 1. 単一リクエスト
 2. 型システム
-3. 開発ツール
+3. 便利なツール
 
 ---
 
 ### 1. 単一リクエスト
 
-効率的なデータ読み込み
+REST は複数のエンドポイントへの問い合わせを行うという典型的な課題がある
+
+GraphQL は単一のリクエストで指定したデータを取得できる
+=> 効率的なデータの読み込み
+
+- クライアントのデータ取得の効率化
+- データの表現の柔軟さ
+- エンドポイントの管理の容易さ
 
 Facebook が GraphQL を開発した理由は、[モバイルネイティブアプリへの移行のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
 スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
 
-REST は複数のエンドポイントへの問い合わせを行うという典型的な課題がある
-クライアントのデータ取得の効率やデータの表現の都合で似たような振る舞いの API を作りがち
+<!--
 
-GraphQL は単一のリクエストで指定したデータを取得可能
-オーバーフェッチを最小限に抑え、サーバーへのラウンドトリップを少なくする
+---
+
+#### REST の課題 オーバーフェッチ・アンダーフェッチ・エンドポイント管理
+
+-->
+
+---
+
+#### REST vs GraphQL
+
+| 特徴                         | REST | GraphQL |
+| ---------------------------- | ---- | ------- |
+| オーバーフェッチの解消       | ❌   | ✅      |
+| アンダーフェッチの解消       | ❌   | ✅      |
+| エンドポイントの管理の容易さ | ❌   | ✅      |
+| エンドポイントの実装の単純さ | ✅   | ❌      |
+
+GraphQL は複数のリソースを単一の HTTP POST (Query のみなら GET) リクエストで取得できる
+=> REST の典型的な課題を解消できる
+その代わり、エンドポイントの実装は REST と比較して複雑になりやすい
 
 ---
 
@@ -224,7 +267,7 @@ apollo.fetch(query: pokemonQuery) { result in
 
 ---
 
-### 3. 開発ツール
+### 3. 便利なツール
 
 短期間での開発
 
@@ -233,11 +276,44 @@ apollo.fetch(query: pokemonQuery) { result in
 
 ---
 
-#### IDE - GraphiQL
+#### 代表的なツールの紹介
+
+- GraphiQL … 一般的な IDE
+- GraphQL Playground … より強力な IDE
+- Public GraphQL APIs … 公開されている GraphQL API の一覧
+- GraphQL Code Generator … 自動コード生成
+- Hasura … GraphQL サーバー
+
+---
+
+#### GraphiQL
 
 ![h:600 GraphiQL](https://raw.githubusercontent.com/graphql/graphiql/main/packages/graphiql/resources/graphiql.jpg)
 
 <!-- _footer: https://github.com/graphql/graphiql -->
+
+---
+
+#### GraphQL Playground
+
+![h:600 GraphQL Playground](https://i.imgur.com/AE5W6OW.png)
+
+<!-- _footer: https://github.com/graphql/graphql-playground -->
+
+---
+
+#### Public GraphQL APIs
+
+公開されている GraphQL API 一覧の紹介
+GraphQL がどういうものか実際に試してみるのに便利
+
+たとえば
+
+- [GitHub](https://docs.github.com/ja/graphql)
+- [Contentful](https://www.contentful.com/developers/docs/tutorials/general/graphql/)
+- [Shopify](https://shopify.dev/api)
+
+https://apis.guru/graphql-apis/
 
 ---
 
@@ -275,16 +351,30 @@ https://hasura.io
 
 ---
 
-## まとめ
+## ここまでのまとめ
 
-- GraphQL とはデータを問い合わせるクエリ言語仕様と周辺技術
-- 単一リクエスト/型システム/開発ツール
+GraphQL の基礎知識
+
+- GraphQL とは API の問い合わせ言語仕様
+- 特徴
+  - 単一リクエスト
+  - 型システム
+  - 便利なツール
 
 ---
 
-## GraphQL をもっと知る
+# GraphQL Query ハンズオン
 
-使うための知識を深める
+---
+
+## GraphQL Query ハンズオン
+
+内容
+
+- 3 種類の操作
+- Query によるデータの取得
+
+実際に GraphQL API からデータを取得できるようになる
 
 ---
 
@@ -296,7 +386,7 @@ https://hasura.io
 - mutation - 書き込み
 - subscription - イベントストリーム
 
-1 つのリクエストに複数の操作を含めることが可能
+1 つのリクエストに複数の操作を含めることができる
 
 ---
 
@@ -448,6 +538,12 @@ query ($showClassification: Boolean!) {
 
 ---
 
+## フィードバック
+
+[このスライドを編集する](https://github.com/kou029w/intro-to-graphql/edit/main/README.md) / [問題を報告する](https://github.com/kou029w/intro-to-graphql/issues/new)
+
+---
+
 ## 後付
 
 ---
@@ -455,20 +551,10 @@ query ($showClassification: Boolean!) {
 ### より理解を深めるための知識
 
 - [山本陽平「Web を支える技術」](https://gihyo.jp/book/2010/978-4-7741-4204-3) - HTTP の基礎知識、REST
+- [Eve Porcello、Alex Banks「初めての GraphQL」](https://www.oreilly.co.jp/books/9784873118932/)
 - [GraphQL \| A query language for your API](https://graphql.org/)
 - [How to GraphQL \- The Fullstack Tutorial for GraphQL](https://www.howtographql.com/)
 - [Fullstack GraphQL Tutorial Series \| Learn GraphQL Frontend and Backend](https://hasura.io/learn/)
-
----
-
-### 何を話していないか
-
-- [Mutation](https://graphql.org/learn/queries/#mutations)
-- [Introspection](https://graphql.org/learn/introspection/)
-- [エラーレスポンス](http://spec.graphql.org/June2018/#sec-Errors)
-- [Validation](https://graphql.org/learn/validation/)
-- [Execution](https://graphql.org/learn/execution/)
-- [Subscription](https://spec.graphql.org/June2018/#sec-Subscription)
 
 ---
 
@@ -511,9 +597,3 @@ GraphQL には[グローバルなオブジェクトの識別子の宣言によ�
 | Int/Float         | Number        |
 
 https://spec.graphql.org/June2018/#sec-JSON-Serialization
-
----
-
-## フィードバック
-
-[このスライドを編集する](https://github.com/kou029w/intro-to-graphql/edit/main/README.md) / [問題を報告する](https://github.com/kou029w/intro-to-graphql/issues/new)
