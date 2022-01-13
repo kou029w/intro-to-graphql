@@ -394,6 +394,118 @@ GraphQL の基礎知識
 
 ---
 
+### ゲットだぜ!
+
+実際に Pokémon API (非公式) を使ってデータを取得してみる
+
+```
+https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A>)
+
+または
+
+1. https://graphql-pokemon2.vercel.app にアクセス
+2. 下記の Query を入力
+
+```graphql
+query {
+  pokemons(first: 151) {
+    name
+  }
+}
+```
+
+3. 実行 (▶) を選択
+
+---
+
+#### 取得結果
+
+```json
+{
+  "data": {
+    "pokemons": [
+      {
+        "name": "Bulbasaur"
+      },
+      {
+        "name": "Ivysaur"
+      },
+      {
+        "name": "Venusaur"
+      },
+      {
+        // ...
+      }
+    ]
+  }
+}
+```
+
+ポケモンに関する情報を JSON で取得できた
+
+---
+
+### 基本的な構文
+
+```graphql
+query {
+  pokemons(first: 151) {
+    name
+  }
+}
+```
+
+`query` … 操作
+`pokemons`, `name` … フィールド
+`first`… 引数
+`151` … 値
+
+---
+
+### 別の取得例
+
+```
+https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D%0A
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D%0A>)
+
+または
+
+1. https://graphql-pokemon2.vercel.app にアクセス
+2. 下記の Query を入力
+
+```graphql
+query {
+  pokemon(name: "Pikachu") {
+    classification
+  }
+}
+```
+
+3. 実行 (▶) を選択
+
+---
+
+#### 取得結果
+
+```json
+{
+  "data": {
+    "pokemon": {
+      "classification": "Mouse Pokémon"
+    }
+  }
+}
+```
+
+ポケモンに関する情報を JSON で取得できた
+
+---
+
 ### 基本的な構文
 
 ```graphql
@@ -405,13 +517,39 @@ query {
 ```
 
 `query` … 操作
+`pokemon`, `classification` … フィールド
 `name` … 引数
 `"Pikachu"` … 値
-`pokemon`, `classification` … フィールド
 
 ---
 
-子孫関係
+### 子孫関係の取得例
+
+```
+https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D>)
+
+または
+
+```graphql
+query {
+  pokemon(name: "Pikachu") {
+    classification
+    height {
+      minimum # <=
+      maximum # <= これらのフィールドが加わる
+    }
+  }
+}
+```
+
+---
+
+### 子孫関係
+
+フィールドにフィールドを追加することで子孫関係を取得できる
 
 ```graphql
 query {
@@ -429,11 +567,24 @@ query {
 
 ---
 
-変数を使った query の再利用
+### 変数の使用例
 
+```
+https://graphql-pokemon2.vercel.app/?query=query%20(%24name%3A%20String!)%20%7B%0A%20%20pokemon(name%3A%20%24name)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&variables=%7B%0A%20%20%22name%22%3A%20%22Pikachu%22%0A%7D
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20(%24name%3A%20String!)%20%7B%0A%20%20pokemon(name%3A%20%24name)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&variables=%7B%0A%20%20%22name%22%3A%20%22Pikachu%22%0A%7D>)
+
+---
+
+### 変数
+
+変数を使うことで Query を再利用できる
+
+<!-- prettier-ignore-start -->
 ```graphql
-query ($name: String!) {
-  pokemon(name: $name) {
+query ($name: String!) { # <= 変数の定義
+  pokemon(name: $name) { # <= 変数の使用
     classification
     height {
       minimum
@@ -442,8 +593,9 @@ query ($name: String!) {
   }
 }
 ```
+<!-- prettier-ignore-end -->
 
-\+
+変数
 
 ```json
 {
@@ -456,9 +608,43 @@ query ($name: String!) {
 
 ---
 
-操作を名付ける
+### 操作名の使用例
+
+```
+https://graphql-pokemon2.vercel.app/?query=query%20fetchPokemonNames%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A%0Aquery%20fetchPikachu%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&operationName=fetchPokemonNames
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20fetchPokemonNames%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A%0Aquery%20fetchPikachu%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&operationName=fetchPokemonNames>)
+
+<!-- prettier-ignore-start -->
+```graphql
+query fetchPokemonNames { # <= 操作に名前を付ける
+  pokemons(first: 151) {
+    name
+  }
+}
+
+query fetchPikachu {      # <= 操作に名前を付ける
+  pokemon(name: "Pikachu") {
+    classification
+  }
+}
+```
+<!-- prettier-ignore-end -->
+
+---
+
+### 操作名
+
+操作に名前を付けることで複数の操作を識別できる
 
 ```graphql
+query fetchPokemonNames {
+  pokemons(first: 151) {
+    name
+  }
+}
+
 query fetchPikachu {
   pokemon(name: "Pikachu") {
     classification
@@ -466,11 +652,51 @@ query fetchPikachu {
 }
 ```
 
-`fetchPikachu` … 操作名
+`fetchPokemonNames`, `fetchPikachu` … 操作名
 
 ---
 
-フィールドを名付ける
+### エイリアスの使用例
+
+```
+https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pikachu%3A%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&variables=
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pikachu%3A%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D>)
+
+または
+
+<!-- prettier-ignore-start -->
+```graphql
+query {
+  pikachu: pokemon(name: "Pikachu") { # <= フィールドに名前を付ける
+    classification
+  }
+}
+```
+<!-- prettier-ignore-end -->
+
+---
+
+#### 取得結果
+
+<!-- prettier-ignore-start -->
+```json
+{
+  "data": {
+    "pikachu": { // <= 名付けたプロパティで取得できる
+      "classification": "Mouse Pokémon"
+    }
+  }
+}
+```
+<!-- prettier-ignore-end -->
+
+---
+
+### エイリアス
+
+フィールドに名前を付ける
 
 ```graphql
 query {
@@ -484,7 +710,40 @@ query {
 
 ---
 
-フラグメント
+### フラグメントの使用例
+
+```
+https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDimension%20%7B%0A%20%20minimum%0A%20%20maximum%0A%7D%0A%0Aquery%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%20%20weight%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDimension%20%7B%0A%20%20minimum%0A%20%20maximum%0A%7D%0A%0Aquery%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%20%20weight%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D>)
+
+または
+
+```graphql
+fragment dimension on PokemonDimension {
+  minimum
+  maximum
+}
+
+query {
+  pokemon(name: "Pikachu") {
+    classification
+    height {
+      ...dimension
+    }
+    weight {
+      ...dimension
+    }
+  }
+}
+```
+
+---
+
+### フラグメント
+
+いくつかのフィールドをまとめ、そのフィールドを取得する際に使用できる
 
 ```graphql
 fragment dimension on PokemonDimension {
@@ -509,7 +768,17 @@ query {
 
 ---
 
-ディレクティブ
+### ディレクティブの使用例
+
+```
+https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20Boolean!)%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%20%40include(if%3A%20%24showClassification)%0A%20%20%7D%0A%7D%0A&variables=%7B%0A%20%20%22showClassification%22%3A%20true%0A%7D
+```
+
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20Boolean!)%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%20%40include(if%3A%20%24showClassification)%0A%20%20%7D%0A%7D%0A&variables=%7B%0A%20%20%22showClassification%22%3A%20true%0A%7D>)
+
+---
+
+### ディレクティブ
 
 ```graphql
 query ($showClassification: Boolean!) {
@@ -519,7 +788,7 @@ query ($showClassification: Boolean!) {
 }
 ```
 
-\+
+変数
 
 ```json
 {
