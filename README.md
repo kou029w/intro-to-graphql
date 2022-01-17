@@ -26,7 +26,7 @@ WebDINO Japan エンジニア
 - なぜ GraphQL を使うのか
 - GraphQL Query ハンズオン
 
-GraphQL の基礎を学び、実際に GraphQL API からデータを取得できるようになる
+GraphQL の基礎を学び、実際に GraphQL API からデータを取得してみる
 
 ---
 
