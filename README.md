@@ -192,48 +192,7 @@ type PokemonDimension {
 }
 ```
 
----
-
-```graphql
-"""ポケモンを表します"""
-type Pokemon {
-}
-
-"""ポケモンの寸法を表します"""
-type PokemonDimension {
-}
-```
-
-オブジェクトの種類
-
----
-
-```graphql
-"""
-ポケモンを表します
-"""
-type Pokemon {
-  """
-  このオブジェクトのID
-  """
-  id: ID!
-
-  """
-  このポケモンの名前
-  """
-  name: String
-
-  """
-  このポケモンの分類
-  """
-  classification: String
-
-  """
-  このポケモンの高さの最大と最小
-  """
-  height: PokemonDimension
-}
-```
+オブジェクトの種類とその構造を宣言できる
 
 ---
 
