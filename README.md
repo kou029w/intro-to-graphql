@@ -550,15 +550,7 @@ query ($name: String!) { # <= 変数の定義
 ```
 <!-- prettier-ignore-end -->
 
-変数
-
-```json
-{
-  "name": "Pikachu"
-}
-```
-
-`$name` … 変数
+`$name` … 変数 (例えば `{ "name": "Pikachu" }` によって代入)
 `String!` … 型
 
 ---
