@@ -366,7 +366,7 @@ https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A
 または
 
 1. https://graphql-pokemon2.vercel.app にアクセス
-2. 下記の Query を入力
+2. 下記の Query を入力 > 実行 (▶) を選択
 
 ```graphql
 query {
@@ -375,8 +375,6 @@ query {
   }
 }
 ```
-
-3. 実行 (▶) を選択
 
 ---
 
@@ -435,7 +433,7 @@ https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%2
 または
 
 1. https://graphql-pokemon2.vercel.app にアクセス
-2. 下記の Query を入力
+2. 下記の Query を入力 > 実行 (▶) を選択
 
 ```graphql
 query {
@@ -444,8 +442,6 @@ query {
   }
 }
 ```
-
-3. 実行 (▶) を選択
 
 ---
 
