@@ -509,6 +509,10 @@ query {
 
 ---
 
+### 発展的な構文
+
+---
+
 ### 変数の使用例
 
 ```
@@ -714,6 +718,10 @@ https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20B
 
 ### ディレクティブ
 
+修飾するための機能
+
+`@include` ディレクティブの例
+
 ```graphql
 query ($showClassification: Boolean!) {
   pokemon(name: "Pikachu") {
@@ -730,14 +738,23 @@ query ($showClassification: Boolean!) {
 }
 ```
 
-`@include` … ディレクティブ
+`@include` ディレクティブは条件に応じてフィールドを含めるかどうかを決める
+これ以外にも、いくつかディレクティブがある
 
 ---
 
 ## まとめ
 
-- 3 種類の操作
-- Query によるデータの取得
+- 基本的な構文
+  - 操作
+  - フィールド
+  - 引数と値
+  - 子孫関係
+- 変数 … Query を再利用できる
+- 操作名 … 複数の操作を識別できる
+- エイリアス … フィールドに名前を付ける
+- フラグメント … いくつかのフィールドをまとめる
+- ディレクティブ … 修飾するための機能
 
 ---
 
