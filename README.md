@@ -78,7 +78,7 @@ https://graphql-pokemon2.vercel.app
 
 - 2012 年 Facebook による開発
 - 2015 年 オープンソース化
-- 2019 年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
+- 2019 年 [GraphQL Foundation](https://graphql.org/foundation/) に移管
 
 Facebook が GraphQL を開発した理由は、[モバイルネイティブアプリ対応のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
 スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
