@@ -320,7 +320,7 @@ GraphQL の基礎知識
 - GraphQL の操作
 - query 操作によるデータの取得
 
-実際に GraphQL API からデータを取得できるようになる
+実際に GraphQL API からデータを取得してみる
 
 ---
 
