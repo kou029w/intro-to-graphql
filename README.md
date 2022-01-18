@@ -336,7 +336,7 @@ GraphQL の基礎知識
 
 ---
 
-## Query - データの取得
+## query 操作によるデータの取得
 
 ---
 
@@ -345,10 +345,10 @@ GraphQL の基礎知識
 実際に Pokémon API (非公式) を使ってデータを取得してみる
 
 ```
-https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A
+https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D
 ```
 
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A>)
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D>)
 
 または
 
@@ -412,10 +412,10 @@ query {
 ### 別の取得例
 
 ```
-https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D%0A
+https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D
 ```
 
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D%0A>)
+[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D>)
 
 または
 
