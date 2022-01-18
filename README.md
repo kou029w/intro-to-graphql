@@ -511,6 +511,15 @@ query {
 
 ### Try it!
 
+https://graphql-pokemon2.vercel.app
+
+ヒント
+
+1. `{` ... `}`
+1. `pokemons(first: 151) {` ... `}` または `pokemon(name: "Pikachu") {` ... `}`
+1. Shift-Space
+1. フィールドをクリック
+
 ---
 
 ### 発展的な構文
