@@ -341,7 +341,7 @@ GraphQL の基礎知識
 
 実際に Pokémon API (非公式) を使ってデータを取得してみる
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D
 ```
 
@@ -408,7 +408,7 @@ query {
 
 ### 別の取得例
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D
 ```
 
@@ -464,7 +464,7 @@ query {
 
 ### 子孫関係の取得例
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D
 ```
 
@@ -525,7 +525,7 @@ https://graphql-pokemon2.vercel.app
 
 ### 変数の使用例
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=query%20(%24name%3A%20String!)%20%7B%0A%20%20pokemon(name%3A%20%24name)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&variables=%7B%0A%20%20%22name%22%3A%20%22Pikachu%22%0A%7D
 ```
 
@@ -558,7 +558,7 @@ query ($name: String!) { # <= 変数の定義
 
 ### 操作名の使用例
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=query%20fetchPokemonNames%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A%0Aquery%20fetchPikachu%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&operationName=fetchPokemonNames
 ```
 
@@ -606,7 +606,7 @@ query fetchPikachu {
 
 ### エイリアスの使用例
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pikachu%3A%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&variables=
 ```
 
@@ -660,7 +660,7 @@ query {
 
 ### フラグメントの使用例
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDimension%20%7B%0A%20%20minimum%0A%20%20maximum%0A%7D%0A%0Aquery%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%20%20weight%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D
 ```
 
@@ -697,7 +697,7 @@ query {
 
 ### ディレクティブの使用例
 
-```
+```text
 https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20Boolean!)%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%20%40include(if%3A%20%24showClassification)%0A%20%20%7D%0A%7D%0A&variables=%7B%0A%20%20%22showClassification%22%3A%20true%0A%7D
 ```
 
