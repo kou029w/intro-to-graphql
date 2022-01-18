@@ -718,7 +718,7 @@ https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20B
 
 ### ディレクティブ
 
-修飾するための機能
+Query を修飾できる
 
 `@include` ディレクティブの例
 
@@ -754,7 +754,7 @@ query ($showClassification: Boolean!) {
 - 操作名 … 複数の操作を識別できる
 - エイリアス … フィールドに名前を付ける
 - フラグメント … いくつかのフィールドをまとめる
-- ディレクティブ … 修飾するための機能
+- ディレクティブ … Query を修飾できる
 
 ---
 
