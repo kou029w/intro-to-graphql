@@ -74,7 +74,6 @@ Facebook が GraphQL を開発した理由は、[モバイルネイティブア�
 スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
 
 現在はオープンソースな仕様になっており、自由に貢献できる
-
 https://github.com/graphql/graphql-spec
 
 ---
