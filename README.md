@@ -38,7 +38,7 @@ https://graphql.org
 
 ### GraphQL とは API の問い合わせ言語
 
-サーバーへの問い合わせ (GraphQL Query)
+クライアントからサーバーへの問い合わせ (GraphQL Query)
 
 ```graphql
 query {
@@ -48,7 +48,7 @@ query {
 }
 ```
 
-サーバーからの応答 (JSON)
+サーバーからクライアントへの応答 (JSON)
 
 ```json
 {
@@ -70,28 +70,30 @@ https://graphql-pokemon2.vercel.app
 - 2015 年 オープンソース化
 - 2019 年 [GraphQL Foundation](https://graphql.org/foundation/)に移管
 
-オープンソースな仕様になっており、自由に[貢献できる](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
+Facebook が GraphQL を開発した理由は、[モバイルネイティブアプリ対応のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
+スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
+
+現在はオープンソースな仕様になっており、自由に[貢献できる](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
 
 ---
 
 ### 仕様
 
-サーバーとクライアントの間のやり取りに使われる言語仕様
 https://spec.graphql.org
 
 #### 問い合わせ言語 - GraphQL Query
 
-クライアントがサーバーに JSON のデータを問い合わせるための言語
+![bg right:33% fit](https://ptuml.hackmd.io/svg/SoWkIImgAStDKIXEBInDpKjEvIhEpimhI2nAp5N8pS_BJyueoizDLIWfAatbUjoq_d7poiTDInutBNhSlFbnSuU2hft2uwQjZvltF6wU02GLh1JSYn8BCW9z509BKuigiMcnqKNNuXNixmSKM_MuUThZfXsFcvQ3TNLmEQJcfG2TnWK0)
+
+クライアントからサーバーに問い合わせるための言語
 https://graphql.org/learn/queries/
 
-身近な問い合わせ言語の例: SQL
+GraphQL 以外の身近な問い合わせ言語の例: SQL
 
 #### スキーマ言語 - GraphQL Schema
 
 データ構造と操作を宣言するための言語
 https://graphql.org/learn/schema/
-
-身近なスキーマ言語の例: [JSON Schema](https://json-schema.org/), [XML Schema](http://www.w3.org/TR/xmlschema11-1/)
 
 ---
 
@@ -114,12 +116,6 @@ https://graphql.org/learn/schema/
 
 GraphQL は単一のリクエストで指定したデータを取得できる
 
-- クライアントのデータ取得の効率化
-- エンドポイントの管理の容易さ
-
-Facebook が GraphQL を開発した理由は、[モバイルネイティブアプリ対応のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
-スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
-
 ---
 
 #### REST
@@ -136,7 +132,7 @@ https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/
 
 ---
 
-#### REST vs GraphQL
+#### GraphQL の特徴
 
 | 特徴                         | REST | GraphQL |
 | ---------------------------- | :--: | :-----: |
@@ -145,8 +141,8 @@ https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/
 | エンドポイントの管理の容易さ |  ❌  |   ✅    |
 | エンドポイントの実装の単純さ |  ✅  |   ❌    |
 
-GraphQL は複数のリソースを単一の HTTP POST (Query のみなら GET) リクエストで取得できる
-その代わり、エンドポイントの実装は REST と比較して複雑になりやすい
+単一の HTTP POST (読み取りのみなら GET) リクエストで複数リソースを操作できる
+その代わり、エンドポイントの実装は REST での実装より複雑な傾向がある
 
 ---
 
@@ -301,7 +297,7 @@ https://hasura.io
 
 GraphQL の基礎知識
 
-- GraphQL とは API の問い合わせ言語仕様
+- GraphQL とは API の問い合わせ言語
 - 特徴
   - 単一リクエスト
   - 型システム
