@@ -666,27 +666,6 @@ https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDi
 
 [この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDimension%20%7B%0A%20%20minimum%0A%20%20maximum%0A%7D%0A%0Aquery%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%20%20weight%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D>)
 
-または
-
-```graphql
-fragment dimension on PokemonDimension {
-  minimum
-  maximum
-}
-
-query {
-  pokemon(name: "Pikachu") {
-    classification
-    height {
-      ...dimension
-    }
-    weight {
-      ...dimension
-    }
-  }
-}
-```
-
 ---
 
 ### フラグメント
