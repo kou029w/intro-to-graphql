@@ -18,6 +18,16 @@ WebDINO Japan エンジニア
 
 ---
 
+## 人気の技術
+
+![bg right:72% State of JS 2020](https://stateofx-images.netlify.app/captures/js2020/en-US/datalayer_experience_ranking.png)
+
+データ層分野
+
+<!-- _footer: 図の出典: "State of JS 2020" データ層 https://2020.stateofjs.com/ja-JP/technologies/datalayer/ -->
+
+---
+
 ## はじめに
 
 内容
@@ -294,8 +304,6 @@ https://hasura.io
 ---
 
 ## ここまでのまとめ
-
-GraphQL の基礎知識
 
 - GraphQL とは API の問い合わせ言語
 - 特徴
