@@ -318,7 +318,7 @@ GraphQL の基礎知識
 内容
 
 - GraphQL の操作
-- Query によるデータの取得
+- query 操作によるデータの取得
 
 実際に GraphQL API からデータを取得できるようになる
 
