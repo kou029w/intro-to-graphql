@@ -216,14 +216,13 @@ apollo.fetch(query: pokemonQuery) { result in
 短期間での開発
 
 クライアントアプリケーションの設計変更に対応するためのツールが提供されている
-継続的デプロイ (CD) が背景
 
 ---
 
-#### 代表的なツールの紹介
+#### 便利なツールの紹介
 
-- GraphiQL … 一般的な IDE
-- GraphQL Playground … より強力な IDE
+- GraphiQL … GraphQL の開発環境
+- GraphQL Playground … より強力な GraphQL の開発環境
 - Public GraphQL APIs … 公開されている GraphQL API の一覧
 - GraphQL Code Generator … 自動コード生成
 - Hasura … GraphQL サーバー
