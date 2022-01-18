@@ -73,7 +73,9 @@ https://graphql-pokemon2.vercel.app
 Facebook が GraphQL を開発した理由は、[モバイルネイティブアプリ対応のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
 スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
 
-現在はオープンソースな仕様になっており、自由に[貢献できる](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md)
+現在はオープンソースな仕様になっており、自由に貢献できる
+
+https://github.com/graphql/graphql-spec
 
 ---
 
