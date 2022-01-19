@@ -157,6 +157,19 @@ https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/
 
 ---
 
+### クライアント・ドリブン
+
+従来の REST はどちらかというとサーバーのデータ構造の都合
+サーバーにとってシンプルなデータ構造は役に立ってきた
+
+現代のモバイルアプリケーションの開発はクライアントが中心の世界
+データの問い合わせのより強力な表現が重要になってきた
+
+"GraphQL: Client-Driven Development" @beyang (2017)
+https://about.sourcegraph.com/graphql/graphql-client-driven-development/
+
+---
+
 ### 2. 型システム
 
 単一リクエストを支える GraphQL エンドポイントの構築と正確なデータ構造の維持
