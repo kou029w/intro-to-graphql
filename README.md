@@ -222,8 +222,6 @@ apollo.fetch(query: pokemonQuery) { result in
 
 ### 3. 便利なツール
 
-短期間での開発
-
 クライアントアプリケーションの設計変更に対応するためのツールが提供されている
 
 ---
