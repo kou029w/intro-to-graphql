@@ -76,7 +76,7 @@ https://graphql-pokemon2.vercel.app
 
 ### 歴史
 
-- 2012 年 Facebook による開発
+- 2012 年 Facebook (現 Meta) による開発
 - 2015 年 オープンソース化
 - 2019 年 [GraphQL Foundation](https://graphql.org/foundation/) に移管
 
