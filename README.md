@@ -16,6 +16,15 @@ WebDINO Japan エンジニア
 <script src="https://cdn.jsdelivr.net/npm/highlightjs-graphql@1.0.2/graphql.min.js"></script>
 <script>hljs.registerLanguage("graphql", hljsDefineGraphQL);hljs.highlightAll();</script>
 
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("a")?.forEach(function (a) {
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noreferrer");
+  });
+});
+</script>
+
 ---
 
 ## 人気の技術
