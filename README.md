@@ -190,7 +190,7 @@ https://about.sourcegraph.com/graphql/graphql-client-driven-development/
 
 データ構造と操作を宣言するスキーマ言語
 
-```graphql=
+```graphql
 """ポケモンを表します"""
 type Pokemon {
   """このオブジェクトのID"""
