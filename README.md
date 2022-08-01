@@ -1,4 +1,5 @@
 ---
+title: GraphQL 概論
 marp: true
 paginate: true
 ---
