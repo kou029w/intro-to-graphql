@@ -261,7 +261,7 @@ apollo.fetch(query: pokemonQuery) { result in
 
 #### GraphiQL
 
-![h:600 GraphiQL](https://raw.githubusercontent.com/graphql/graphiql/main/packages/graphiql/resources/graphiql.jpg)
+![h:600 GraphiQL](https://raw.githubusercontent.com/graphql/graphiql/main/packages/graphiql/resources/graphiql.png)
 
 <!-- _footer: https://github.com/graphql/graphiql -->
 
