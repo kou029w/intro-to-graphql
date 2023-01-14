@@ -10,22 +10,6 @@ WebDINO Japan エンジニア
 [渡邉浩平](https://github.com/kou029w)
 ![w:200](https://github.com/kou029w.png)
 
-<!-- @license https://cdn.jsdelivr.net/npm/highlightjs-graphql@1.0.2/LICENSE -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/styles/default.min.css">
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/highlight.min.js"></script>
-<script>module={};</script>
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-graphql@1.0.2/graphql.min.js"></script>
-<script>hljs.registerLanguage("graphql", hljsDefineGraphQL);hljs.highlightAll();</script>
-
-<script>
-window.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("a")?.forEach(function (a) {
-    a.setAttribute("target", "_blank");
-    a.setAttribute("rel", "noreferrer");
-  });
-});
-</script>
-
 ---
 
 ## 人気の技術
@@ -835,3 +819,21 @@ GraphQL には[グローバルなオブジェクトの識別子の宣言によ�
 | Int/Float         | Number        |
 
 https://spec.graphql.org/June2018/#sec-JSON-Serialization
+
+---
+
+<!-- @license https://cdn.jsdelivr.net/npm/highlightjs-graphql@1.0.2/LICENSE -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/highlight.min.js"></script>
+<script>module={};</script>
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-graphql@1.0.2/graphql.min.js"></script>
+<script>hljs.registerLanguage("graphql", hljsDefineGraphQL);hljs.highlightAll();</script>
+
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("a")?.forEach(function (a) {
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noreferrer");
+  });
+});
+</script>
