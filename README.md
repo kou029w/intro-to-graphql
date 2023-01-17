@@ -14,7 +14,7 @@ WebDINO Japan エンジニア
 
 ## 人気の技術
 
-![bg right:72% State of JS 2020](https://stateofx-images.netlify.app/captures/js2020/en-US/datalayer_experience_ranking.png)
+![bg right:72% State of JS 2020](./assets/datalayer-experience-ranking.png)
 
 データ層分野
 
