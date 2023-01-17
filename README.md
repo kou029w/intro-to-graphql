@@ -75,7 +75,7 @@ https://graphql-pokemon2.vercel.app
 - 2019 年 [GraphQL Foundation](https://graphql.org/foundation/) に移管
 
 Facebook が GraphQL を開発した理由は、[モバイルネイティブアプリ対応のため](https://reactjs.org/blog/2015/05/01/graphql-introduction.html)
-スマホの普及に伴う低速、省電力なデバイスの利用の増加が背景
+スマートフォン普及に伴うプラットフォームの多様化が背景
 
 現在はオープンソースな仕様になっており、自由に貢献できる
 https://github.com/graphql/graphql-spec
@@ -236,7 +236,6 @@ apollo.fetch(query: pokemonQuery) { result in
 #### 便利なツールの紹介
 
 - GraphiQL … GraphQL の開発環境
-- GraphQL Playground … より強力な GraphQL の開発環境
 - Public GraphQL APIs … 公開されている GraphQL API の一覧
 - GraphQL Code Generator … 自動コード生成
 - Hasura … GraphQL サーバー
@@ -248,14 +247,6 @@ apollo.fetch(query: pokemonQuery) { result in
 ![h:600 GraphiQL](https://raw.githubusercontent.com/graphql/graphiql/main/packages/graphiql/resources/graphiql.png)
 
 <!-- _footer: https://github.com/graphql/graphiql -->
-
----
-
-#### GraphQL Playground
-
-![h:600 GraphQL Playground](https://i.imgur.com/AE5W6OW.png)
-
-<!-- _footer: https://github.com/graphql/graphql-playground -->
 
 ---
 
@@ -474,15 +465,11 @@ query {
 
 ---
 
-### 子孫関係の取得例
+### 子孫関係
 
-```text
-https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D
-```
+フィールドにフィールドを追加することで子孫関係を取得できる
 
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D>)
-
-または
+[子孫関係の例](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D>)
 
 ```graphql
 query {
@@ -490,25 +477,7 @@ query {
     classification
     height {
       minimum # <=
-      maximum # <= これらのフィールドが加わる
-    }
-  }
-}
-```
-
----
-
-### 子孫関係
-
-フィールドにフィールドを追加することで子孫関係を取得できる
-
-```graphql
-query {
-  pokemon(name: "Pikachu") {
-    classification
-    height {
-      minimum
-      maximum
+      maximum # <= これらのフィールド
     }
   }
 }
@@ -534,21 +503,19 @@ https://graphql-pokemon2.vercel.app
 
 ### 発展的な構文
 
----
-
-### 変数の使用例
-
-```text
-https://graphql-pokemon2.vercel.app/?query=query%20(%24name%3A%20String!)%20%7B%0A%20%20pokemon(name%3A%20%24name)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&variables=%7B%0A%20%20%22name%22%3A%20%22Pikachu%22%0A%7D
-```
-
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20(%24name%3A%20String!)%20%7B%0A%20%20pokemon(name%3A%20%24name)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&variables=%7B%0A%20%20%22name%22%3A%20%22Pikachu%22%0A%7D>)
+- 変数 … Query を再利用できる
+- 操作名 … 複数の操作を識別できる
+- エイリアス … フィールドに名前を付ける
+- フラグメント … いくつかのフィールドをまとめる
+- ディレクティブ … Query を修飾できる
 
 ---
 
 ### 変数
 
 変数を使うことで Query を再利用できる
+
+[変数の使用例](<https://graphql-pokemon2.vercel.app/?query=query%20(%24name%3A%20String!)%20%7B%0A%20%20pokemon(name%3A%20%24name)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20minimum%0A%20%20%20%20%20%20maximum%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&variables=%7B%0A%20%20%22name%22%3A%20%22Pikachu%22%0A%7D>)
 
 <!-- prettier-ignore-start -->
 ```graphql
@@ -569,13 +536,11 @@ query ($name: String!) { # <= 変数の定義
 
 ---
 
-### 操作名の使用例
+### 操作名
 
-```text
-https://graphql-pokemon2.vercel.app/?query=query%20fetchPokemonNames%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A%0Aquery%20fetchPikachu%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&operationName=fetchPokemonNames
-```
+操作に名前を付けることで複数の操作を識別できる
 
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20fetchPokemonNames%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A%0Aquery%20fetchPikachu%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&operationName=fetchPokemonNames>)
+[操作名の使用例](<https://graphql-pokemon2.vercel.app/?query=query%20fetchPokemonNames%20%7B%0A%20%20pokemons(first%3A%20151)%20%7B%0A%20%20%20%20name%0A%20%20%7D%0A%7D%0A%0Aquery%20fetchPikachu%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&operationName=fetchPokemonNames>)
 
 <!-- prettier-ignore-start -->
 ```graphql
@@ -593,39 +558,15 @@ query fetchPikachu {      # <= 操作に名前を付ける
 ```
 <!-- prettier-ignore-end -->
 
----
-
-### 操作名
-
-操作に名前を付けることで複数の操作を識別できる
-
-```graphql
-query fetchPokemonNames {
-  pokemons(first: 151) {
-    name
-  }
-}
-
-query fetchPikachu {
-  pokemon(name: "Pikachu") {
-    classification
-  }
-}
-```
-
 `fetchPokemonNames`, `fetchPikachu` … 操作名
 
 ---
 
-### エイリアスの使用例
+### エイリアス
 
-```text
-https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pikachu%3A%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D&variables=
-```
+フィールドに名前を付ける
 
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pikachu%3A%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D>)
-
-または
+[エイリアスの使用例](<https://graphql-pokemon2.vercel.app/?query=query%20%7B%0A%20%20pikachu%3A%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%7D%0A%7D>)
 
 <!-- prettier-ignore-start -->
 ```graphql
@@ -637,9 +578,7 @@ query {
 ```
 <!-- prettier-ignore-end -->
 
----
-
-#### 取得結果
+取得結果
 
 <!-- prettier-ignore-start -->
 ```json
@@ -655,37 +594,14 @@ query {
 
 ---
 
-### エイリアス
-
-フィールドに名前を付ける
-
-```graphql
-query {
-  pikachu: pokemon(name: "Pikachu") {
-    classification
-  }
-}
-```
-
-`pikachu` … エイリアス
-
----
-
-### フラグメントの使用例
-
-```text
-https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDimension%20%7B%0A%20%20minimum%0A%20%20maximum%0A%7D%0A%0Aquery%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%20%20weight%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D
-```
-
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDimension%20%7B%0A%20%20minimum%0A%20%20maximum%0A%7D%0A%0Aquery%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%20%20weight%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D>)
-
----
-
 ### フラグメント
 
 いくつかのフィールドをまとめ、そのフィールドを取得する際に使用できる
 
+[フラグメントの使用例](<https://graphql-pokemon2.vercel.app/?query=fragment%20dimension%20on%20PokemonDimension%20%7B%0A%20%20minimum%0A%20%20maximum%0A%7D%0A%0Aquery%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%0A%20%20%20%20height%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%20%20weight%20%7B%0A%20%20%20%20%20%20...dimension%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D>)
+
 ```graphql
+# フラグメントの定義
 fragment dimension on PokemonDimension {
   minimum
   maximum
@@ -695,26 +611,14 @@ query {
   pokemon(name: "Pikachu") {
     classification
     height {
-      ...dimension
+      ...dimension # <= フラグメントの使用
     }
     weight {
-      ...dimension
+      ...dimension # <= フラグメントの使用
     }
   }
 }
 ```
-
-`dimension` … フラグメント
-
----
-
-### ディレクティブの使用例
-
-```text
-https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20Boolean!)%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%20%40include(if%3A%20%24showClassification)%0A%20%20%7D%0A%7D%0A&variables=%7B%0A%20%20%22showClassification%22%3A%20true%0A%7D
-```
-
-[この URL にアクセス](<https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20Boolean!)%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%20%40include(if%3A%20%24showClassification)%0A%20%20%7D%0A%7D%0A&variables=%7B%0A%20%20%22showClassification%22%3A%20true%0A%7D>)
 
 ---
 
@@ -722,7 +626,7 @@ https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20B
 
 Query を修飾できる
 
-`@include` ディレクティブの例
+[`@include` ディレクティブの使用例](<https://graphql-pokemon2.vercel.app/?query=query%20(%24showClassification%3A%20Boolean!)%20%7B%0A%20%20pokemon(name%3A%20%22Pikachu%22)%20%7B%0A%20%20%20%20classification%20%40include(if%3A%20%24showClassification)%0A%20%20%7D%0A%7D%0A&variables=%7B%0A%20%20%22showClassification%22%3A%20true%0A%7D>)
 
 ```graphql
 query ($showClassification: Boolean!) {
@@ -752,11 +656,12 @@ query ($showClassification: Boolean!) {
   - フィールド
   - 引数と値
   - 子孫関係
-- 変数 … Query を再利用できる
-- 操作名 … 複数の操作を識別できる
-- エイリアス … フィールドに名前を付ける
-- フラグメント … いくつかのフィールドをまとめる
-- ディレクティブ … Query を修飾できる
+- 発展的な構文
+  - 変数
+  - 操作名
+  - エイリアス
+  - フラグメント
+  - ディレクティブ
 
 ---
 
