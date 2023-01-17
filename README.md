@@ -6,7 +6,7 @@ paginate: true
 
 # GraphQL 概論
 
-WebDINO Japan エンジニア
+WebDINO Japan シニアエンジニア
 [渡邉浩平](https://github.com/kou029w)
 ![w:200](https://github.com/kou029w.png)
 
