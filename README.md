@@ -211,8 +211,8 @@ fetch(`http://example/?${new URLSearchParams({ query: pokemonQuery })}`)
 
 ```kotlin
 // Kotlin
-val response = apolloClient.query(pokemonQuery).await()
-Log.d(response?.data?.pokemon?.classification)
+val r = apolloClient.query(pokemonQuery).await()
+Log.d(r?.data?.pokemon?.classification)
 ```
 
 ```swift
