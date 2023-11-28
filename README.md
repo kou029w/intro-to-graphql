@@ -104,7 +104,7 @@ https://graphql.org/learn/schema/
 
 ### 何でないか
 
-- データベースではない
+- グラフデータベースではない
 - JavaScript ではない
 
 ---
@@ -275,7 +275,7 @@ $ graphql-codegen
 
 使う
 
-```typescript
+```js
 import { usePokemonQuery } from "./generated";
 
 export default () => {
@@ -303,9 +303,9 @@ https://hasura.io
 
 - GraphQL とは API の問い合わせ言語
 - 特徴
-  - 単一リクエスト
-  - 型システム
-  - 便利なツール
+  - 単一リクエスト … クライアントの無駄なやり取りを減らせる
+  - 型システム … プラットフォームを問わない
+  - 便利なツール … 設計変更しやすい
 
 ---
 
